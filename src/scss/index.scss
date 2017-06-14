@@ -1,0 +1,221 @@
+$brush-size-color: rgb(181, 181, 181);
+$tool-panel-bgColor: #d8e1ea;
+$tool-panel-padding: 20px;
+$tool-module-margin: 20px;
+$tool-module-component-margin: 5px;
+$tool-btn-bgColor: #fff;
+$button-selected: rgba(48, 160, 255,1);
+$border-radius: 20px;
+$component-border-radius: 10px;
+$slider-track-bgColor:rgb(208, 208, 208);
+input[type=range] {
+  -webkit-appearance: none;
+}
+input[type=range]:focus {
+    outline: none;
+}
+// [Webkit-slider-styling]
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background-color: rgb(208, 208, 208);
+  height: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  margin-top: -7px;
+  border-radius: 50%;
+  background-color: $button-selected;
+  box-shadow: 0 2px 10px 0px $button-selected;
+}
+// /[Webkit-slider-styling]
+
+// [Moz-slider-styling]
+input[type=range]::-moz-range-track {
+  -webkit-appearance: none;
+  background-color: $slider-track-bgColor;
+  height: 3px;
+}
+
+input[type=range]::-moz-range-thumb  {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  margin-top: -7px;
+  border-radius: 50%;
+  background-color: $button-selected;
+  box-shadow: 0 2px 10px 0px $button-selected;
+}
+// /[Moz-slider-styling]
+
+// [MS-slider-styling]
+input[type=range]::-ms-track {
+  -webkit-appearance: none;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+  border-width: 5px 0;
+  height: 3px;
+}
+
+input[type=range]::-ms-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px 0px $button-selected;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: $slider-track-bgColor;
+    border-radius: 10px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: $slider-track-bgColor;
+    border-radius: 10px;
+}
+// /[MS-slider-styling]
+.artboard {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.toolspanel-wrapper {
+  position: absolute;
+  right: 0;
+  margin-top: 20px;
+  margin-right: 20px;
+  background-color: $tool-panel-bgColor;
+  border-radius: $border-radius;
+  height: auto;
+  padding: $tool-panel-padding;
+  width: 260px;
+}
+
+.module {
+  margin-bottom: $tool-module-margin;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.tool-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $tool-module-margin;
+
+  &:last-child{
+    margin-bottom: 0;
+  }
+
+  .tool {
+    background-color: $tool-btn-bgColor;
+    border-radius: $border-radius;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid $button-selected;
+    }
+  }
+
+  .brush-tool {
+    background-image: url('/images/paint-brush.png');
+    background-size: 60px 60px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .brush-tool .active {
+    background-image: url('/images/paint-brush-white.png');
+  }
+
+  .active {
+    background-color: $button-selected;
+    box-shadow: 0 10px 30px -10px $button-selected;
+  }
+}
+
+.brush-row {
+  display: flex;
+
+  .brush-size {
+    width: 40px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .circle {
+      height: 15px;
+      width: 15px;
+      background-color: $brush-size-color;
+      border-radius: $border-radius;
+    }
+
+    .circle-big{
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  .brush-range {
+    width: 140px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+    }
+  }
+}
+
+.swatches-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $tool-module-component-margin;
+
+  &:last-child{
+    margin-bottom: 0;
+  }
+
+  .swatches {
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    border-radius: $component-border-radius;
+  }
+}
+
+.color-swatches {
+  margin-bottom: $tool-module-margin;
+}
+
+.color-picker {
+  height: 85px;
+  width: 220px;
+  border-radius: $border-radius;
+  background-color: rgba(227, 74, 91,1);
+  box-shadow: 0 10px 30px -10px rgba(227, 74, 91,1);
+}
+
+.undo-btn {
+  height: 80px;
+  width: 220px;
+  border-radius: $border-radius;
+  background-color: white;
+
+  &:hover{
+    border: 1px solid $button-selected;
+  }
+
+  &:active{
+    background-color: $button-selected;
+  }
+}
